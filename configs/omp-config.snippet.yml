@@ -1,0 +1,8 @@
+defaultProvider: polystrata
+defaultModel: inkling-2-mini
+defaultThinkingLevel: low
+modelRoles:
+  default: polystrata/inkling-2-mini:medium
+edit:
+  modelVariants:
+    inkling: replace

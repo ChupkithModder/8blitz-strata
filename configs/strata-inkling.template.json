@@ -1,0 +1,63 @@
+{
+  "exe": "<POLYSTRATA_DIR>/engine/strata-poly",
+  "args": [
+    "--model",
+    "<MODEL_GGUF_PATH>",
+    "--max-context",
+    "262144",
+    "--expert-profile",
+    "<EXPERT_PROFILE_PATH>",
+    "--kv",
+    "fp8",
+    "--vram-pool",
+    "--vram-reserve-mib",
+    "640",
+    "--lock-experts",
+    "--prompt-cache",
+    "6",
+    "--conversation-cache-mib",
+    "auto",
+    "--loop-bf16",
+    "--window",
+    "8",
+    "--threads",
+    "16"
+  ],
+  "env": {},
+  "cwd": "<POLYSTRATA_DIR>",
+  "tokenizer": "<TOKENIZER_DIR>",
+  "model_name": "inkling-2-mini-ud-q3_k_xl",
+  "aliases": [
+    "inkling-2-mini"
+  ],
+  "display_name": "Inkling 2 Mini UD-Q3_K_XL (256K native ctx, vision)",
+  "log": "<POLYSTRATA_DIR>/strata-inkling.log",
+  "vision": {
+    "exe": "<POLYSTRATA_DIR>/engine/strata-vision",
+    "mmproj": "<MMPROJ_PATH>",
+    "model": "<MODEL_GGUF_PATH>",
+    "gpu": false,
+    "max_tokens": 300,
+    "threads": 16
+  },
+  "reasoning_effort": "high",
+  "reasoning_budget_tokens": 6144,
+  "reasoning_loop_recovery": "recover",
+  "reasoning_close_retry": true,
+  "repeat_stop_tokens": 128,
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 0,
+    "min_p": 0.0,
+    "repetition_penalty": 1.0,
+    "presence_penalty": 0.0,
+    "penalty_last_n": 256
+  },
+  "host": "0.0.0.0",
+  "api_key": "none",
+  "port": 8080,
+  "gpu": 0,
+  "gpus_asked": true,
+  "open_browser": false
+}

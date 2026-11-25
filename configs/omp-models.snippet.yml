@@ -1,0 +1,25 @@
+providers:
+  polystrata:
+    baseUrl: http://127.0.0.1:8080/v1
+    api: openai-completions
+    apiKey: none
+    models:
+      - id: inkling-2-mini
+        name: Inkling 2 Mini UD-Q3_K_XL (local PolyStrata)
+        reasoning: true
+        input:
+          - text
+          - image
+        contextWindow: 131072
+        maxTokens: 65536
+        cost:
+          input: 0
+          output: 0
+          cacheRead: 0
+          cacheWrite: 0
+        compat:
+          supportsStore: false
+          supportsDeveloperRole: false
+          supportsReasoningEffort: true
+          maxTokensField: max_tokens
+          thinkingFormat: openai
