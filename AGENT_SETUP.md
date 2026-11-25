@@ -1,4 +1,4 @@
-# Agent Setup Runbook (`inkling2-polystrata-setup`)
+# Agent Setup Runbook (`8blitz-strata`)
 
 This document is written so an AI coding agent (OpenCode, Oh My Pi, Claude Code, Codex, Antigravity, etc.) can automatically install, configure, tune, and verify **Inkling 2 Mini** on **PolyStrata** for the user's OS and hardware.
 

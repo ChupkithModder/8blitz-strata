@@ -85,12 +85,16 @@ sun.shadow.mapSize.set(2048, 2048);
 sun.shadow.camera.left = -30; sun.shadow.camera.right = 30;
 sun.shadow.camera.top = 30;  sun.shadow.camera.bottom = -30;
 sun.shadow.camera.near = 1;  sun.shadow.camera.far = 90;
-sun.shadow.bias = -0.0006;
+sun.shadow.bias = -0.0012;
+sun.shadow.normalBias = 0.02;
 scene.add(sun);
 
-// ---------- voxel helper ----------
-const voxelList = [];
-function vx(x,y,z,c){ voxelList.push({x,y,z,c:new THREE.Color(c)}); }
+// ---------- voxel helper (deduplicated by coordinate to prevent Z-fighting) ----------
+const voxelMap = new Map();
+function vx(x,y,z,c){
+  const rx = Math.round(x), ry = Math.round(y), rz = Math.round(z);
+  voxelMap.set(rx + ',' + ry + ',' + rz, {x:rx, y:ry, z:rz, c:new THREE.Color(c)});
+}
 function box(x0,y0,z0,w,h,d,c,jitter){
   jitter = (jitter===undefined)?0.06:jitter;
   for(let i=0;i<w;i++)for(let j=0;j<h;j++)for(let k=0;k<d;k++){
@@ -288,6 +292,7 @@ lantern(-6,1); lantern(7,1); lantern(-2,15);
 });
 
 // ---------- build the instanced mesh ----------
+const voxelList = Array.from(voxelMap.values());
 const geo = new THREE.BoxGeometry(1,1,1);
 const mat = new THREE.MeshLambertMaterial({ color:0xffffff });
 const voxelMesh = new THREE.InstancedMesh(geo, mat, voxelList.length);
