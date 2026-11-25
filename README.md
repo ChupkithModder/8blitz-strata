@@ -1,12 +1,18 @@
 <h1 align="center">8blitz-strata</h1>
 
-<p align="center"><b>Run Inkling 2 Mini at 256K context on an 8 GB GPU — fast, lossless, and agent-ready</b><br>
+<p align="center"><b>Run Inkling 2 Mini (<code>UD-Q3_K_XL</code>) at 256K context on an 8 GB GPU — fast, lossless, and agent-ready</b><br>
 Tuned <a href="https://github.com/simplexai-labs/PolyStrata">PolyStrata</a> (<code>strata-poly</code>) + OpenCode + Oh My Pi (<code>omp</code>) setup for 8 GB+ cards</p>
 
 <p align="center"><a href="https://chupkithmodder.github.io/8blitz-strata/pagoda.html"><img src="assets/pagoda.gif" width="780" alt="Voxel Pagoda Garden generated in one shot by Inkling 2 Mini on an 8 GB RTX 3070"></a><br>
 <sub>Inkling 2 Mini (<code>UD-Q3_K_XL</code>) on an 8 GB RTX 3070, 0 thinking loops: writes a Three.js voxel pagoda and cherry blossom garden in one HTML file. <a href="https://chupkithmodder.github.io/8blitz-strata/pagoda.html"><b>Try the live 3D demo in your browser</b></a>.</sub></p>
 
-**8blitz-strata** is a tuned configuration, fix pack, and automated agent runbook for running **[Inkling 2 Mini](https://huggingface.co/thinkingmachines/Inkling-2-Mini)** (`UD-Q3_K_XL`, 13.63 GB) locally on an **8 GB GPU** with a full **256K (`262,144`) native context window** — without PolyStrata's lossy small-card approximations, without thinking loops, and without broken tool calls in coding agents.
+**8blitz-strata** is a tuned configuration, fix pack, and automated agent runbook for running **[Inkling 2 Mini](https://huggingface.co/thinkingmachines/Inkling-2-Mini)** (**`UD-Q3_K_XL`**, `13.63 GB` — specifically `Inkling-2-Mini-Abliterated-Balanced-UD-Q3_K_XL.gguf`, `inkling2_loop` layout) locally on an **8 GB GPU** with a full **256K (`262,144`) native context window** — without PolyStrata's lossy small-card approximations, without thinking loops, and without broken tool calls in coding agents.
+
+### Quantization tested & options
+- **Tested quant:** **`UD-Q3_K_XL`** (`13.63 GB`, ~96.3% top-token agreement vs reference, fits `~1,041 / 3,072` experts in 8 GB VRAM + `1,992` in pinned RAM).
+- **Smaller / faster on 8 GB:** **`UD-Q2_K_XL`** (`~9.6 GB`, fits more experts in 8 GB VRAM if you want higher tok/s at lower precision).
+- **Larger (16 GB+ VRAM or 32–48 GB RAM):** **`UD-Q4_K_XL`** (`17.63 GB`, higher precision).
+- **Important GGUF layout note:** PolyStrata (`strata-poly`) requires the **`inkling2_loop`** layout (e.g., `Mainline_Support/` in [`unsloth/Inkling-2-Mini-GGUF`](https://huggingface.co/unsloth/Inkling-2-Mini-GGUF) or `inkling2_loop` abliterated quants — not the older `inkling2` layout).
 
 > **No model weights or binaries are included in this repo.** Give this repo to your coding agent and it will set everything up for your OS and hardware.
 
