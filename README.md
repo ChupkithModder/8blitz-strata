@@ -1,6 +1,8 @@
 # Inkling 2 Mini + PolyStrata Setup & Benchmarks (8 GB+ GPUs)
 
-![Voxel Pagoda generated in one shot by Inkling 2 Mini](assets/pagoda.gif)
+[![Voxel Pagoda generated in one shot by Inkling 2 Mini](assets/pagoda.gif)](https://chupkithmodder.github.io/inkling2-polystrata-setup/pagoda.html)
+
+**[Try the Live Interactive 3D Pagoda Demo in Browser](https://chupkithmodder.github.io/inkling2-polystrata-setup/pagoda.html)** *(click the GIF or link above — drag to rotate, scroll to zoom)*
 
 *Above: Single-file Three.js voxel pagoda + cherry blossom garden generated in 1 shot by **Inkling 2 Mini (`UD-Q3_K_XL`)** on an **8 GB RTX 3070** (`finish_reason: "stop"`, 0 thinking loops, 0 syntax errors).*
 
